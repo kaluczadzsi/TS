@@ -25,9 +25,10 @@ const person = {
 
 // person.role = [0, 'admin', 'user'];
 
-let favoriteActivities: string[];
+let favoriteActivities: any[];
+favoriteActivities = ['Sports'];
 
-console.log(person);
+console.log(person.name);
 
 for (const hobby of person.hobbies) {
   console.log(hobby);
