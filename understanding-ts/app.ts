@@ -1,17 +1,7 @@
-let appId = 'abc';
-const button = document.querySelector('button')!;
+const add = (a: number, b: number) => a + b;
 
-function add(n1: number, n2: number) {
-  if (n1 + n2 > 0) {
-    return n1 + n2;
-  }
-}
+const printOutput = (output: string | number) => {
+  console.log(output);
+};
 
-function clickHandler(message: string) {
-  let userName = 'Gabor';
-  console.log('Clicked! ' + message);
-}
-
-if (button) {
-  button?.addEventListener('click', clickHandler.bind(null, "You're welcome!"));
-}
+printOutput(add(5, 2));
