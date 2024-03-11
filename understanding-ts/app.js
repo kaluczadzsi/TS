@@ -39,10 +39,17 @@ var ITDepartment = /** @class */ (function (_super) {
         _this.admins = admins;
         return _this;
     }
+    ITDepartment.prototype.addEmployee = function (name) {
+        if (name === 'Max') {
+            return;
+        }
+        this.employees.push(name);
+    };
     return ITDepartment;
 }(Department));
 var it = new ITDepartment('d1', ['Gabor']);
 it.describe();
 it.addEmployee('Nyad');
 it.addEmployee('Max');
+it.addEmployee('Yoruba');
 console.log(it);
