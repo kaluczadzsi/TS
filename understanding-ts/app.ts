@@ -36,11 +36,53 @@ class ITDepartment extends Department {
   }
 }
 
-const it = new ITDepartment('d1', ['Gabor']);
+class AccountingDepartment extends Department {
+  private lastReport: string;
+  protected reports: string[] = [];
 
-it.describe();
-it.addEmployee('Nyad');
-it.addEmployee('Max');
-it.addEmployee('Yoruba');
+  get allReports() {
+    return this.reports;
+  }
 
-console.log(it);
+  get mostRecentReport() {
+    if (this.lastReport) {
+      return this.lastReport;
+    }
+
+    throw new Error('No report found.');
+  }
+
+  set mostRecentReport(value: string) {
+    if (!value) {
+      throw new Error('Please pass in a valid value!');
+    }
+
+    this.addReport(value);
+  }
+
+  constructor(id: string, reports: string[]) {
+    super(id, 'Accounting');
+    this.lastReport = reports[0];
+  }
+
+  addReport(text: string) {
+    this.reports.push(text);
+    this.lastReport = this.reports[0];
+  }
+
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
+const accounting = new AccountingDepartment('ad1', []);
+
+accounting.mostRecentReport = 'Year and report';
+
+accounting.addReport('Something went wrong...');
+
+accounting.addEmployee('Max');
+accounting.addEmployee('Tomas');
+
+console.log(accounting.mostRecentReport);
+console.log(accounting.allReports);
