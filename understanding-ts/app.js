@@ -20,8 +20,12 @@ var Department = /** @class */ (function () {
         this.employees = [];
         this.name = name;
     }
+    Department.createEmployee = function (name) {
+        return { name: name };
+    };
     Department.prototype.describe = function () {
         console.log("Department (".concat(this.id, "): ").concat(this.name));
+        console.log(this.fiscalYear);
     };
     Department.prototype.addEmployee = function (employee) {
         this.employees.push(employee);
@@ -30,6 +34,7 @@ var Department = /** @class */ (function () {
         console.log(this.employees.length);
         console.log(this.employees);
     };
+    Department.fiscalYear = 2020;
     return Department;
 }());
 var ITDepartment = /** @class */ (function (_super) {
@@ -92,5 +97,7 @@ accounting.mostRecentReport = 'Year and report';
 accounting.addReport('Something went wrong...');
 accounting.addEmployee('Max');
 accounting.addEmployee('Tomas');
-console.log(accounting.mostRecentReport);
-console.log(accounting.allReports);
+var employee1 = Department.createEmployee('Max');
+var fiscalYear = Department.fiscalYear;
+console.log(fiscalYear);
+console.log(employee1);

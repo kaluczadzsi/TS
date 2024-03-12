@@ -1,12 +1,18 @@
 class Department {
+  static fiscalYear = 2020;
   protected employees: string[] = [];
 
   constructor(private readonly id: string, public name: string) {
     this.name = name;
   }
 
+  static createEmployee(name: string) {
+    return { name };
+  }
+
   describe() {
     console.log(`Department (${this.id}): ${this.name}`);
+    console.log(this.fiscalYear);
   }
 
   addEmployee(employee: string) {
@@ -76,13 +82,12 @@ class AccountingDepartment extends Department {
 }
 
 const accounting = new AccountingDepartment('ad1', []);
-
 accounting.mostRecentReport = 'Year and report';
-
 accounting.addReport('Something went wrong...');
-
 accounting.addEmployee('Max');
 accounting.addEmployee('Tomas');
 
-console.log(accounting.mostRecentReport);
-console.log(accounting.allReports);
+const employee1 = Department.createEmployee('Max');
+const fiscalYear = Department.fiscalYear;
+console.log(fiscalYear);
+console.log(employee1);
