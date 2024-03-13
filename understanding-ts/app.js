@@ -4,7 +4,12 @@ add = function (a, b) {
 };
 var Person = /** @class */ (function () {
     function Person(name) {
-        this.name = name;
+        if (name) {
+            this.name = name;
+        }
+        else {
+            console.log('Hi!');
+        }
     }
     Person.prototype.greet = function (phrase) {
         console.log("".concat(phrase, " ").concat(this.name));
