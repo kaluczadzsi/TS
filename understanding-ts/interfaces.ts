@@ -1,4 +1,4 @@
-interface AddFn {
+/* interface AddFn {
   (a: number, b: number): number;
 }
 
@@ -38,3 +38,4 @@ user1 = new Person('John Doe');
 
 console.log(user1);
 user1.greet('Hi there - I am');
+ */

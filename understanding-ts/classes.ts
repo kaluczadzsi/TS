@@ -1,4 +1,4 @@
-abstract class Department {
+/* abstract class Department {
   static fiscalYear = 2020;
   protected employees: string[] = [];
 
@@ -96,3 +96,4 @@ const employee1 = Department.createEmployee('Max');
 const fiscalYear = Department.fiscalYear;
 
 accounting.describe();
+ */
