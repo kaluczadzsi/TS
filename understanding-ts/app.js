@@ -1,3 +1,7 @@
+var add;
+add = function (a, b) {
+    return a + b;
+};
 var Person = /** @class */ (function () {
     function Person(name) {
         this.name = name;
