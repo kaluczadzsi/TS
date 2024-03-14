@@ -48,3 +48,18 @@ function useVehicle(vehicle) {
 }
 useVehicle(v1);
 useVehicle(v2);
+function moveAnimal(animal) {
+    // if ('flyingSpeed' in animal) {
+    //   console.log('Moving with speed: ' + animal.flyingSpeed);
+    // }
+    var speed;
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSpread;
+    }
+    console.log('Moving at speed: ' + speed);
+}
+moveAnimal({ type: 'horse', runningSpread: 200 });
