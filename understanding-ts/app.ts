@@ -29,6 +29,15 @@ function add(a: Combinable, b: Combinable) {
   return a + b;
 }
 
+const fetchedUserData = {
+  id: 'u1',
+  name: 'Mike',
+  job: { title: 'CEO', description: 'My own company' },
+};
+
+console.log(fetchedUserData?.job.title);
+
+/* 
 type UnknownEmployee = Employee | Admin;
 
 function printEmployeeInfo(emp: UnknownEmployee) {
@@ -121,4 +130,4 @@ interface ErrorContainer {
 const errorBag: ErrorContainer = {
   email: 'Not a valid email',
   username: 'Must start with a capital character',
-};
+};*/

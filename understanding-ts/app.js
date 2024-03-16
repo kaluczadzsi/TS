@@ -9,66 +9,103 @@ function add(a, b) {
     }
     return a + b;
 }
-function printEmployeeInfo(emp) {
-    console.log('Name: ' + emp.name);
-    if ('privileges' in emp) {
-        console.log('Privileges: ' + emp.privileges);
-    }
-    if ('startDate' in emp) {
-        console.log('Start Date: ' + emp.startDate);
-    }
+var fetchedUserData = {
+    id: 'u1',
+    name: 'Mike',
+    job: { title: 'CEO', description: 'My own company' },
+};
+console.log(fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job.title);
+/*
+type UnknownEmployee = Employee | Admin;
+
+function printEmployeeInfo(emp: UnknownEmployee) {
+  console.log('Name: ' + emp.name);
+  if ('privileges' in emp) {
+    console.log('Privileges: ' + emp.privileges);
+  }
+  if ('startDate' in emp) {
+    console.log('Start Date: ' + emp.startDate);
+  }
 }
+
 printEmployeeInfo({ name: 'Max', startDate: new Date() });
-var Car = /** @class */ (function () {
-    function Car() {
-    }
-    Car.prototype.drive = function () {
-        console.log('Driving');
-    };
-    return Car;
-}());
-var Truck = /** @class */ (function () {
-    function Truck() {
-    }
-    Truck.prototype.drive = function () {
-        console.log('Driving a truck...');
-    };
-    Truck.prototype.loadCargo = function (amount) {
-        console.log('Loading cargo ... ' + amount);
-    };
-    return Truck;
-}());
-var v1 = new Car();
-var v2 = new Truck();
-function useVehicle(vehicle) {
-    vehicle.drive();
-    if (vehicle instanceof Truck) {
-        vehicle.loadCargo(200);
-    }
+
+class Car {
+  drive() {
+    console.log('Driving');
+  }
 }
+
+class Truck {
+  drive() {
+    console.log('Driving a truck...');
+  }
+
+  loadCargo(amount: number) {
+    console.log('Loading cargo ... ' + amount);
+  }
+}
+
+type Vehicle = Car | Truck;
+
+const v1 = new Car();
+const v2 = new Truck();
+
+function useVehicle(vehicle: Vehicle) {
+  vehicle.drive();
+
+  if (vehicle instanceof Truck) {
+    vehicle.loadCargo(200);
+  }
+}
+
 useVehicle(v1);
 useVehicle(v2);
-function moveAnimal(animal) {
-    // if ('flyingSpeed' in animal) {
-    //   console.log('Moving with speed: ' + animal.flyingSpeed);
-    // }
-    var speed;
-    switch (animal.type) {
-        case 'bird':
-            speed = animal.flyingSpeed;
-            break;
-        case 'horse':
-            speed = animal.runningSpread;
-    }
-    console.log('Moving at speed: ' + speed);
+
+interface Bird {
+  type: 'bird';
+  flyingSpeed: number;
 }
+
+interface Horse {
+  type: 'horse';
+  runningSpread: number;
+}
+
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  // if ('flyingSpeed' in animal) {
+  //   console.log('Moving with speed: ' + animal.flyingSpeed);
+  // }
+  let speed;
+  switch (animal.type) {
+    case 'bird':
+      speed = animal.flyingSpeed;
+      break;
+    case 'horse':
+      speed = animal.runningSpread;
+  }
+  console.log('Moving at speed: ' + speed);
+}
+
 moveAnimal({ type: 'bird', flyingSpeed: 300 });
+
 // const userInputElement = <HTMLInputElement>(
 //   document.getElementById('user-input')!
 // );
-var userInputElement = document.getElementById('user-input');
+
+const userInputElement = document.getElementById(
+  'user-input'
+)! as HTMLInputElement;
+
 userInputElement.value = 'Hi there';
-var errorBag = {
-    email: 'Not a valid email',
-    username: 'Must start with a capital character',
-};
+
+interface ErrorContainer {
+  [prop: string]: string;
+}
+
+const errorBag: ErrorContainer = {
+  email: 'Not a valid email',
+  username: 'Must start with a capital character',
+};*/
