@@ -29,3 +29,7 @@ function countAndDescribe(element) {
     return [element, descriptionText];
 }
 console.log(countAndDescribe(['Sports', 'Cooking']));
+function extractAndConvert(obj, key) {
+    return obj[key];
+}
+console.log(extractAndConvert({ name: 'Mike' }, 'name'));
