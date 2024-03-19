@@ -1,130 +1,66 @@
-/*
-const names: Array<string> = ['Mike', 'Max'];
-// names[0].split(' ');
-
-const promise: Promise<string> = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('This is done');
-  }, 2000);
-});
-
-promise.then((result) => {
-  console.log(result);
-});
-
-
-function merge<T extends object, U extends object>(objA: T, objB: U) {
-  return Object.assign(objA, objB);
-}
-const mergedObj = merge({ name: 'Max' }, { age: 30 });
-
-type Lengthy = {
-  length: number;
-};
-
-function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
-  let descriptionText = 'Got no value.';
-  if (element.length === 1) {
-    descriptionText = 'Got 1 element';
-  } else if (element.length > 1) {
-    descriptionText = 'Got ' + element.length + ' elements.';
-  }
-
-  return [element, descriptionText];
-}
-
-console.log(countAndDescribe(['Sports', 'Cooking']));
-
-function extractAndConvert<T extends object, U extends keyof T>(
-  obj: T,
-  key: U
-) {
-  return obj[key];
-}
-
-console.log(extractAndConvert({ name: 'Mike' }, 'name'));
-
-class DataStorage<T extends string | number | boolean> {
-  private data: T[] = [];
-
-  addItem(item: T) {
-    this.data.push(item);
-  }
-
-  removeItem(item: T) {
-    if (this.data.indexOf(item) === -1) {
-      return;
+var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
     }
-
-    this.data.splice(this.data.indexOf(item), 1);
-  }
-
-  getItems() {
-    return [...this.data];
-  }
-}
-
-const textStorage = new DataStorage<string>();
-textStorage.addItem('Mike');
-textStorage.addItem('Yorick');
-textStorage.removeItem('Mike');
-console.log(textStorage.getItems());
-
-const numberStorage = new DataStorage<number>();
-numberStorage.addItem(2);
-numberStorage.addItem(7);
-numberStorage.addItem(99);
-numberStorage.removeItem(2);
-console.log(numberStorage.getItems());
-
-// const objStorage = new DataStorage<object>();
-// objStorage.addItem({ name: 'Mike' });
-// objStorage.addItem({ name: 'Jolene' });
-
-// objStorage.removeItem({ name: 'Mike' });
-// console.log(objStorage.getItems());
-
-type User = {
-  id: number;
-  name: string;
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
 };
-
-class UserStorage<T extends User> {
-  private data: T[] = [];
-
-  addUser(user: T) {
-    this.data.push(user);
-  }
-
-  removeUser(id: number) {
-    this.data = this.data.filter((user) => user.id != id);
-  }
-
-  getUsers() {
-    console.log(this.data);
-  }
-}
-
-const userStorage = new UserStorage<User>();
-
-const getRandomId = () => {
-  return Math.round(Math.random() * 9 + 1);
+var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
 };
-
-userStorage.addUser({ id: 1, name: 'John' });
-userStorage.addUser({ id: 2, name: 'Tomas' });
-userStorage.addUser({ id: 3, name: 'Grace' });
-
-userStorage.getUsers();
-userStorage.removeUser(3);
-userStorage.getUsers();
-*/
-function createCourseGoal(title, description, date) {
-    var courseGoal = {};
-    courseGoal.title = title;
-    courseGoal.description = description;
-    courseGoal.completeUntil = date;
-    return courseGoal;
+var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
+    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+};
+function Logger(constructor) {
+    console.log('Logging...');
+    console.log(constructor);
 }
-var names = ['Max', 'Mike', 'Anna'];
-names.push('Tony');
+var Person = function () {
+    var _classDecorators = [Logger];
+    var _classDescriptor;
+    var _classExtraInitializers = [];
+    var _classThis;
+    var Person = _classThis = /** @class */ (function () {
+        function Person_1() {
+            this.name = 'Tony';
+            console.log('Creating person object...');
+        }
+        return Person_1;
+    }());
+    __setFunctionName(_classThis, "Person");
+    (function () {
+        var _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
+        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
+        Person = _classThis = _classDescriptor.value;
+        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
+        __runInitializers(_classThis, _classExtraInitializers);
+    })();
+    return Person = _classThis;
+}();
+var p1 = new Person();
+console.log(p1);
