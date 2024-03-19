@@ -119,3 +119,12 @@ userStorage.getUsers();
 userStorage.removeUser(3);
 userStorage.getUsers();
 */
+function createCourseGoal(title, description, date) {
+    var courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal;
+}
+var names = ['Max', 'Mike', 'Anna'];
+names.push('Tony');
