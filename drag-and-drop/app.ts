@@ -1,3 +1,4 @@
+// ProjectInput Class
 class ProjectInput {
   templateElement: HTMLTemplateElement;
   hostElement: HTMLDivElement;
@@ -36,8 +37,11 @@ class ProjectInput {
     this.attach();
   }
 
+  private gatherUserInput() {}
+
   private submitHandler(event: Event) {
     event.preventDefault();
+    this.gatherUserInput();
     console.log(this.titleInputElement.value);
   }
 

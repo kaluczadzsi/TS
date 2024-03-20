@@ -1,3 +1,4 @@
+// ProjectInput Class
 var ProjectInput = /** @class */ (function () {
     function ProjectInput() {
         this.templateElement = document.getElementById('project-input');
@@ -11,8 +12,10 @@ var ProjectInput = /** @class */ (function () {
         this.configure();
         this.attach();
     }
+    ProjectInput.prototype.gatherUserInput = function () { };
     ProjectInput.prototype.submitHandler = function (event) {
         event.preventDefault();
+        this.gatherUserInput();
         console.log(this.titleInputElement.value);
     };
     ProjectInput.prototype.configure = function () {
