@@ -11,6 +11,7 @@ const NewTodo = ({ onAddTodo }: NewTodoProps) => {
     e.preventDefault();
     const enteredText = textInputRef.current!.value;
     onAddTodo(enteredText);
+    textInputRef.current!.value = '';
   };
 
   return (
