@@ -2,7 +2,7 @@ type TodoListProps = {
   items: { id: string; text: string }[];
 };
 
-const TodoList: React.FC<TodoListProps> = ({ items }) => {
+const TodoList = ({ items }: TodoListProps) => {
   return (
     <ul>
       {items.map((todo) => (
